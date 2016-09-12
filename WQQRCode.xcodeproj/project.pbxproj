@@ -107,7 +107,7 @@
 		3E4059E21D868D8200CE54E7 /* WQQRCode */ = {
 			isa = PBXGroup;
 			children = (
-				3E7BB54C1D86B77500D07739 /* Classes */,
+				3E7BB54D1D86E65100D07739 /* Classes */,
 				3E4059E61D868D8200CE54E7 /* AppDelegate.h */,
 				3E4059E71D868D8200CE54E7 /* AppDelegate.m */,
 				3E4059E91D868D8200CE54E7 /* ViewController.h */,
@@ -147,7 +147,7 @@
 			path = WQQRCodeUITests;
 			sourceTree = "<group>";
 		};
-		3E7BB54C1D86B77500D07739 /* Classes */ = {
+		3E7BB54D1D86E65100D07739 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				3E405A161D868E2E00CE54E7 /* WQQRCode.h */,
