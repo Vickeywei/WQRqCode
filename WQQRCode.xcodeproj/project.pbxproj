@@ -15,6 +15,8 @@
 		3E4059F31D868D8200CE54E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E4059F11D868D8200CE54E7 /* LaunchScreen.storyboard */; };
 		3E4059FE1D868D8200CE54E7 /* WQQRCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4059FD1D868D8200CE54E7 /* WQQRCodeTests.m */; };
 		3E405A091D868D8200CE54E7 /* WQQRCodeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E405A081D868D8200CE54E7 /* WQQRCodeUITests.m */; };
+		3E405A181D868E2E00CE54E7 /* WQQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E405A171D868E2E00CE54E7 /* WQQRCode.m */; };
+		3E405A1B1D869B4600CE54E7 /* WQReadQrCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E405A1A1D869B4600CE54E7 /* WQReadQrCode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		3E405A041D868D8200CE54E7 /* WQQRCodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WQQRCodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E405A081D868D8200CE54E7 /* WQQRCodeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQQRCodeUITests.m; sourceTree = "<group>"; };
 		3E405A0A1D868D8200CE54E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E405A161D868E2E00CE54E7 /* WQQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WQQRCode.h; path = ../WQQRCode.h; sourceTree = "<group>"; };
+		3E405A171D868E2E00CE54E7 /* WQQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WQQRCode.m; path = ../WQQRCode.m; sourceTree = "<group>"; };
+		3E405A191D869B4600CE54E7 /* WQReadQrCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WQReadQrCode.h; path = ../WQReadQrCode.h; sourceTree = "<group>"; };
+		3E405A1A1D869B4600CE54E7 /* WQReadQrCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WQReadQrCode.m; path = ../WQReadQrCode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		3E4059E21D868D8200CE54E7 /* WQQRCode */ = {
 			isa = PBXGroup;
 			children = (
+				3E7BB54C1D86B77500D07739 /* Classes */,
 				3E4059E61D868D8200CE54E7 /* AppDelegate.h */,
 				3E4059E71D868D8200CE54E7 /* AppDelegate.m */,
 				3E4059E91D868D8200CE54E7 /* ViewController.h */,
@@ -138,6 +145,17 @@
 				3E405A0A1D868D8200CE54E7 /* Info.plist */,
 			);
 			path = WQQRCodeUITests;
+			sourceTree = "<group>";
+		};
+		3E7BB54C1D86B77500D07739 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3E405A161D868E2E00CE54E7 /* WQQRCode.h */,
+				3E405A171D868E2E00CE54E7 /* WQQRCode.m */,
+				3E405A191D869B4600CE54E7 /* WQReadQrCode.h */,
+				3E405A1A1D869B4600CE54E7 /* WQReadQrCode.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +225,7 @@
 				TargetAttributes = {
 					3E4059DF1D868D8200CE54E7 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = NYRBZT6Z59;
 					};
 					3E4059F81D868D8200CE54E7 = {
 						CreatedOnToolsVersion = 7.3;
@@ -273,6 +292,8 @@
 				3E4059EB1D868D8200CE54E7 /* ViewController.m in Sources */,
 				3E4059E81D868D8200CE54E7 /* AppDelegate.m in Sources */,
 				3E4059E51D868D8200CE54E7 /* main.m in Sources */,
+				3E405A181D868E2E00CE54E7 /* WQQRCode.m in Sources */,
+				3E405A1B1D869B4600CE54E7 /* WQReadQrCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,10 +436,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WQQRCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drcacom.com.WQQRCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -426,10 +450,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WQQRCode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drcacom.com.WQQRCode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -498,6 +525,7 @@
 				3E405A0F1D868D8200CE54E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E405A101D868D8200CE54E7 /* Build configuration list for PBXNativeTarget "WQQRCodeTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +534,7 @@
 				3E405A121D868D8200CE54E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E405A131D868D8200CE54E7 /* Build configuration list for PBXNativeTarget "WQQRCodeUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +543,7 @@
 				3E405A151D868D8200CE54E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
