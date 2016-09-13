@@ -33,9 +33,9 @@ static inline dispatch_queue_t creat_ReadQrCodeQueue () {
     }
     [session addInput:input];
     AVCaptureMetadataOutput* output = [[AVCaptureMetadataOutput alloc] init];
-    [output setMetadataObjectsDelegate:(id)self queue:creat_ReadQrCodeQueue()];
+    [output setMetadataObjectsDelegate:self queue:creat_ReadQrCodeQueue()];
     [session addOutput:output];
-    [output setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
+    [output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
     AVCaptureVideoPreviewLayer* layer = [AVCaptureVideoPreviewLayer layerWithSession:session];
     [layer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     layer.frame = view.layer.bounds;
@@ -47,10 +47,12 @@ static inline dispatch_queue_t creat_ReadQrCodeQueue () {
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     if (metadataObjects.count > 0) {
         AVMetadataMachineReadableCodeObject* object = [metadataObjects lastObject];
-        [self.session stopRunning];
-        [self.layer removeFromSuperlayer];
-        if (self.completionHandleBlock) {
-            self.completionHandleBlock(object.stringValue);
+        if ([object.type isEqualToString:AVMetadataObjectTypeQRCode]) {
+            [self.session stopRunning];
+            [self.layer removeFromSuperlayer];
+            if (self.completionHandleBlock) {
+                self.completionHandleBlock(object.stringValue);
+            }
         }
     }
     else {
