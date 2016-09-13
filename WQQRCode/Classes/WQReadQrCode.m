@@ -21,6 +21,7 @@ static inline dispatch_queue_t creat_ReadQrCodeQueue () {
 @end
 @implementation WQReadQrCode
 - (void)readQrCodeWithView:(UIView*)view{
+
     AVCaptureSession* session = [[AVCaptureSession alloc] init];
     self.session = session;
     AVCaptureDevice* device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -28,7 +29,7 @@ static inline dispatch_queue_t creat_ReadQrCodeQueue () {
     
     AVCaptureDeviceInput* input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
     if (!input) {
-        [NSException raise:@"AVCaptureDeviceInputException"  format:@"AVCaptureDeviceInput does not exis",nil];
+        [NSException raise:@"AVCaptureDeviceInputException"  format:@"AV Capture device input does not exist or is the device does not support the input",nil];
     }
     [session addInput:input];
     AVCaptureMetadataOutput* output = [[AVCaptureMetadataOutput alloc] init];
